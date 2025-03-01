@@ -4,3 +4,34 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+# web
+axum = { version = "0.7.5", features = ["macros", "http2"] }
+tower-http = { version = "0.5.2", features = ["cors", "trace", "fs", "cors"] }
+tokio = { version = "1.38.0", features = ["full"] }
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.117"
+sqlx = { version = "^0.7", features = [
+    "postgres",
+    "chrono",
+    "uuid",
+    "macros",
+    "migrate",
+    "json",
+    "runtime-tokio",
+    "tls-native-tls",
+] }
+# observability & tracing
+opentelemetry = "^0.21"
+tracing = "0.1"
+derivative = "2.2.0"
+opentelemetry-otlp = { version = "^0.14", features = [
+    "grpc-tonic",
+    "tls-roots",
+] }
+opentelemetry_sdk = { version = "0.21.0", features = ["rt-tokio"] }
+tracing-opentelemetry = "0.22"
+# Error
+anyhow = "1.0.86"
+thiserror = "1.0.61"
+# Utils
+envy = "0.4.2"
