@@ -1,0 +1,136 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            SELECT * FROM directory WHERE id = $1\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "name",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 2,
+        "name": "email",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "phone",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "address",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "state",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 6,
+        "name": "local_government",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 7,
+        "name": "postal_code",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 8,
+        "name": "website",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 9,
+        "name": "about",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 10,
+        "name": "current_population",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 11,
+        "name": "staff_strength",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 12,
+        "name": "year_established",
+        "type_info": "Int4"
+      },
+      {
+        "ordinal": 13,
+        "name": "curriculum_offered",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 14,
+        "name": "subjects_taught",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 15,
+        "name": "government_approved",
+        "type_info": "Bool"
+      },
+      {
+        "ordinal": 16,
+        "name": "awards_recognition",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 17,
+        "name": "management_board",
+        "type_info": "TextArray"
+      },
+      {
+        "ordinal": 18,
+        "name": "created_at",
+        "type_info": "Timestamp"
+      },
+      {
+        "ordinal": 19,
+        "name": "updated_at",
+        "type_info": "Timestamp"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false
+    ]
+  },
+  "hash": "76a3d61a998821715428b2ba3d080135cda87abf4bce76e2dfa515d53ed3b4c4"
+}

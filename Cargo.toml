@@ -35,3 +35,5 @@ anyhow = "1.0.86"
 thiserror = "1.0.61"
 # Utils
 envy = "0.4.2"
+chrono = "0.4.40"
+uuid = "1.15.1"

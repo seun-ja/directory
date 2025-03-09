@@ -1,6 +1,6 @@
 create table teachers (
-    id serial primary key,
-    trcn integer null,
+    id UUID primary key,
+    trcn text null,
     name text not null,
     bio text null,
     email text UNIQUE not null,
@@ -9,8 +9,8 @@ create table teachers (
     local_government text null,
     qualifications text [],
     experience jsonb [],
-    speciality text not null,
-    status text not null,
+    speciality text null,
+    status text null,
     created_at timestamp not null default now (),
     updated_at timestamp not null default now ()
 );
