@@ -316,6 +316,7 @@ dependencies = [
  "android-tzdata",
  "iana-time-zone",
  "num-traits",
+ "serde",
  "windows-link",
 ]
 
@@ -439,6 +440,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "axum 0.7.9",
+ "chrono",
  "derivative",
  "envy",
  "opentelemetry",
@@ -452,6 +454,7 @@ dependencies = [
  "tower-http",
  "tracing",
  "tracing-opentelemetry",
+ "uuid",
 ]
 
 [[package]]

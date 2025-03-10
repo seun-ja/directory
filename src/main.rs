@@ -1,7 +1,11 @@
 use std::net::SocketAddr;
 
 use axum::{Router, routing::get};
-use directory::{app_state::AppState, config::Config, routes::health::ping_pong};
+use directory::{
+    app_state::AppState,
+    config::Config,
+    routes::{health::ping_pong, school_directory_r::school_data, teachers_r::teacher_data},
+};
 use tower_http::{
     cors::{AllowHeaders, AllowMethods, AllowOrigin, CorsLayer},
     trace::TraceLayer,
@@ -17,6 +21,8 @@ async fn main() -> anyhow::Result<()> {
     let app = Router::new()
         // Health
         .route("/health/ping", get(ping_pong))
+        .route("/teacher/(id)", get(teacher_data))
+        .route("/school/(id)", get(school_data))
         // CORS
         .layer(
             CorsLayer::new()
