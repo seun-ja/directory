@@ -1,12 +1,12 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n            SELECT * FROM directory WHERE id = $1\n            ",
+  "query": "\n                SELECT * FROM directory WHERE id = $1\n            ",
   "describe": {
     "columns": [
       {
         "ordinal": 0,
         "name": "id",
-        "type_info": "Uuid"
+        "type_info": "Text"
       },
       {
         "ordinal": 1,
@@ -96,17 +96,17 @@
       {
         "ordinal": 18,
         "name": "created_at",
-        "type_info": "Timestamp"
+        "type_info": "Timestamptz"
       },
       {
         "ordinal": 19,
         "name": "updated_at",
-        "type_info": "Timestamp"
+        "type_info": "Timestamptz"
       }
     ],
     "parameters": {
       "Left": [
-        "Uuid"
+        "Text"
       ]
     },
     "nullable": [
@@ -132,5 +132,5 @@
       false
     ]
   },
-  "hash": "76a3d61a998821715428b2ba3d080135cda87abf4bce76e2dfa515d53ed3b4c4"
+  "hash": "5afcb42f9baa87da009dfda06f68962d3ea65b0115c309ca7dabdd8d3d638dbf"
 }

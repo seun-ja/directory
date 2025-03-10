@@ -1,12 +1,12 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n            SELECT * FROM teachers WHERE id = $1\n            ",
+  "query": "\n                SELECT * FROM teachers WHERE id = $1\n            ",
   "describe": {
     "columns": [
       {
         "ordinal": 0,
         "name": "id",
-        "type_info": "Uuid"
+        "type_info": "Text"
       },
       {
         "ordinal": 1,
@@ -66,17 +66,17 @@
       {
         "ordinal": 12,
         "name": "created_at",
-        "type_info": "Timestamp"
+        "type_info": "Timestamptz"
       },
       {
         "ordinal": 13,
         "name": "updated_at",
-        "type_info": "Timestamp"
+        "type_info": "Timestamptz"
       }
     ],
     "parameters": {
       "Left": [
-        "Uuid"
+        "Text"
       ]
     },
     "nullable": [
@@ -96,5 +96,5 @@
       false
     ]
   },
-  "hash": "0b2b95a2e36f81df1766c2afbcdb5a818efad4c690fc422617c97914f4cc6002"
+  "hash": "fb7dfe6f7c607a71d1f01f5ff67aeff794196df79836cf351820155dc2c24e87"
 }

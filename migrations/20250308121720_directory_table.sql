@@ -1,5 +1,5 @@
 create table directory (
-    id UUID primary key,
+    id text primary key,
     name text UNIQUE not null ,
     email text UNIQUE null,
     phone text UNIQUE null,
@@ -17,6 +17,6 @@ create table directory (
     government_approved boolean null,
     awards_recognition text[],
     management_board text[],
-    created_at timestamp not null default now(),
-    updated_at timestamp not null default now()
+    created_at timestamptz not null default now(),
+    updated_at timestamptz not null default now()
 );

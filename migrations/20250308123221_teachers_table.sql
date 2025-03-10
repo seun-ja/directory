@@ -1,5 +1,5 @@
 create table teachers (
-    id UUID primary key,
+    id text primary key,
     trcn text null,
     name text not null,
     bio text null,
@@ -11,6 +11,6 @@ create table teachers (
     experience jsonb [],
     speciality text null,
     status text null,
-    created_at timestamp not null default now (),
-    updated_at timestamp not null default now ()
+    created_at timestamptz not null default now (),
+    updated_at timestamptz not null default now ()
 );
