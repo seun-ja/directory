@@ -1,6 +1,6 @@
 {
   "db_name": "PostgreSQL",
-  "query": "\n                SELECT * FROM directory WHERE id = $1\n            ",
+  "query": "SELECT * FROM directory",
   "describe": {
     "columns": [
       {
@@ -105,9 +105,7 @@
       }
     ],
     "parameters": {
-      "Left": [
-        "Text"
-      ]
+      "Left": []
     },
     "nullable": [
       false,
@@ -132,5 +130,5 @@
       false
     ]
   },
-  "hash": "5afcb42f9baa87da009dfda06f68962d3ea65b0115c309ca7dabdd8d3d638dbf"
+  "hash": "03e552cd8cac6235933cc3a7c6cb2443d2b97db01e2549f198beb0b498fdd905"
 }

@@ -1,0 +1,31 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n                INSERT INTO directory\n                (\n            id, name, email, phone, address, state, local_government, postal_code, website,\n            about, current_population, staff_strength, year_established, curriculum_offered,\n            government_approved, subjects_taught, awards_recognition, management_board\n                )\n                Values\n                (\n            $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18\n                )\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Left": [
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Text",
+        "Int4",
+        "Int4",
+        "Int4",
+        "Text",
+        "Bool",
+        "TextArray",
+        "TextArray",
+        "TextArray"
+      ]
+    },
+    "nullable": []
+  },
+  "hash": "14d744de4b77eca6d820f7f95153d1a0c004e033d66f36e108af03357b3347a2"
+}

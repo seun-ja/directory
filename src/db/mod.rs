@@ -1,6 +1,8 @@
 use chrono::{DateTime, Utc};
 use serde::Serialize;
 
+use crate::services::search::Seachable;
+
 pub mod school_directory_d;
 pub mod teahers_d;
 
@@ -20,13 +22,15 @@ pub struct SchoolDirectorySchema {
     pub staff_strength: Option<i32>,
     pub year_established: Option<i32>,
     pub curriculum_offered: Option<String>,
-    pub subjects_taught: Option<Vec<String>>,
+    pub subjects_taught: Vec<String>,
     pub government_approved: Option<bool>,
-    pub awards_recognition: Option<Vec<String>>,
-    pub management_board: Option<Vec<String>>,
+    pub awards_recognition: Vec<String>,
+    pub management_board: Vec<String>,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
+
+impl Seachable for SchoolDirectorySchema {}
 
 #[derive(Debug, Serialize)]
 pub struct TeacherSchema {
@@ -45,3 +49,5 @@ pub struct TeacherSchema {
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
 }
+
+impl Seachable for TeacherSchema {}

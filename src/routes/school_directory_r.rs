@@ -16,7 +16,7 @@ pub async fn school_data(
     SchoolDirectoryDb {
         pool: app_state.pg_pool,
     }
-    .school_data(&id)
+    .get_school_data(&id)
     .await
     .map(Json)
 }

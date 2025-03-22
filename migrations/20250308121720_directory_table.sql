@@ -1,6 +1,6 @@
 create table directory (
     id text primary key,
-    name text UNIQUE not null ,
+    name text UNIQUE not null,
     email text UNIQUE null,
     phone text UNIQUE null,
     address text null,
@@ -13,10 +13,10 @@ create table directory (
     staff_strength integer null,
     year_established integer null,
     curriculum_offered text null,
-    subjects_taught text[],
+    subjects_taught text[] not null,
     government_approved boolean null,
-    awards_recognition text[],
-    management_board text[],
+    awards_recognition text[] not null,
+    management_board text[] not null,
     created_at timestamptz not null default now(),
     updated_at timestamptz not null default now()
 );
