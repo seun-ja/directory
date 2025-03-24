@@ -18,6 +18,8 @@ async fn main() -> anyhow::Result<()> {
 
     let app_state = AppState::build(&app_config).await?;
 
+    // TODO: #6 Create background tasks to cache data.
+
     let app = Router::new()
         // Health
         .route("/health/ping", get(ping_pong))

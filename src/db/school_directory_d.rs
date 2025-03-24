@@ -9,13 +9,13 @@ pub struct SchoolDirectoryDb {
 }
 
 impl SchoolDirectoryDb {
-    pub async fn school_datas(&mut self) -> Result<Vec<SchoolDirectorySchema>, ApiError> {
+    pub async fn school_data(&mut self) -> Result<Vec<SchoolDirectorySchema>, ApiError> {
         sqlx::query_as!(SchoolDirectorySchema, r#"SELECT * FROM directory"#)
             .fetch_all(&self.pool)
             .await
             .map_err(ApiError::Sqlx)
     }
-    pub async fn get_school_data(
+    pub async fn get_school_data_by_term(
         &mut self,
         school_id: &str,
     ) -> Result<SchoolDirectorySchema, ApiError> {

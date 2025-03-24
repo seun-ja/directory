@@ -5,7 +5,7 @@ use axum::{
 
 use crate::{
     app_state::AppState,
-    db::{TeacherSchema, teahers_d::TeacherDb},
+    db::{TeacherSchema, teachers_d::TeacherDb},
     error::ApiError,
 };
 
@@ -17,7 +17,7 @@ pub async fn teacher_data(
     TeacherDb {
         pool: app_state.pg_pool,
     }
-    .teacher_data(&id)
+    .teacher_data_by_id(&id)
     .await
     .map(Json)
 }

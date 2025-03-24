@@ -1,15 +1,37 @@
 use std::collections::BTreeMap;
 
-use crate::error::ApiError;
-use serde::Serialize;
+use crate::{
+    db::{
+        SchoolDirectorySchema, TeacherSchema, school_directory_d::SchoolDirectoryDb,
+        teachers_d::TeacherDb,
+    },
+    error::ApiError,
+};
+use sqlx::PgPool;
 
-pub trait Seachable {
-    fn search_by_term<T: Serialize>(
-        _datas: Vec<T>,
-        _term: &str,
-    ) -> Result<BTreeMap<&str, T>, ApiError> {
-        todo!()
+pub trait Searchable: Sized + SearchableTerm {
+    fn search_by_term(data: Vec<Self>, term: &str) -> Result<BTreeMap<String, Self>, ApiError>
+    where
+        Self: Sized + SearchableTerm,
+    {
+        Ok(data
+            .into_iter()
+            .filter(|d| d.search_term() == term)
+            .map(|d| (d.search_term(), d))
+            .collect::<BTreeMap<String, Self>>())
     }
+}
+
+pub trait SearchableTerm {
+    fn search_term(&self) -> String;
+}
+
+async fn _school_directory_cache(pool: PgPool) -> Result<Vec<SchoolDirectorySchema>, ApiError> {
+    SchoolDirectoryDb { pool }.school_data().await
+}
+
+async fn _teachers_cache(pool: PgPool) -> Result<Vec<TeacherSchema>, ApiError> {
+    TeacherDb { pool }.teacher_data().await
 }
 
 #[cfg(test)]
