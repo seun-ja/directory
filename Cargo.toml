@@ -20,6 +20,8 @@ sqlx = { version = "^0.7", features = [
     "runtime-tokio",
     "tls-native-tls",
 ] }
+# search
+tantivy = "0.22.0"
 # observability & tracing
 opentelemetry = "^0.21"
 tracing = "0.1"

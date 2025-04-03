@@ -1,6 +1,6 @@
 use sqlx::PgPool;
 
-use crate::error::ApiError;
+use crate::{error::ApiError, services::search::Searchable};
 
 use super::SchoolDirectorySchema;
 
@@ -9,11 +9,12 @@ pub struct SchoolDirectoryDb {
 }
 
 impl SchoolDirectoryDb {
-    pub async fn school_data(&mut self) -> Result<Vec<SchoolDirectorySchema>, ApiError> {
+    pub async fn school_data(&mut self) -> Result<SchoolDirectory, ApiError> {
         sqlx::query_as!(SchoolDirectorySchema, r#"SELECT * FROM directory"#)
             .fetch_all(&self.pool)
             .await
             .map_err(ApiError::Sqlx)
+            .map(|data| SchoolDirectory { data })
     }
     pub async fn get_school_data_by_term(
         &mut self,
@@ -70,3 +71,9 @@ impl SchoolDirectoryDb {
         .map(|_| ())
     }
 }
+
+pub struct SchoolDirectory {
+    pub data: Vec<SchoolDirectorySchema>,
+}
+
+impl Searchable for SchoolDirectory {}

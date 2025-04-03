@@ -1,7 +1,7 @@
 use chrono::{DateTime, Utc};
 use serde::Serialize;
 
-use crate::services::search::{Searchable, SearchableTerm};
+use crate::services::search::SearchableTerm;
 
 pub mod school_directory_d;
 pub mod teachers_d;
@@ -30,8 +30,6 @@ pub struct SchoolDirectorySchema {
     pub updated_at: DateTime<Utc>,
 }
 
-impl Searchable for SchoolDirectorySchema {}
-
 impl SearchableTerm for SchoolDirectorySchema {
     fn search_term(&self) -> String {
         self.name.clone()
@@ -56,7 +54,6 @@ pub struct TeacherSchema {
     pub updated_at: DateTime<Utc>,
 }
 
-impl Searchable for TeacherSchema {}
 impl SearchableTerm for TeacherSchema {
     fn search_term(&self) -> String {
         self.name.clone()

@@ -14,7 +14,7 @@ use tower_http::{
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     // Load configuration from Env.
-    let app_config = envy::from_env::<Config>().expect("Unable to load configuration");
+    let app_config = envy::from_env::<Config>()?;
 
     let app_state = AppState::build(&app_config).await?;
 
@@ -37,7 +37,7 @@ async fn main() -> anyhow::Result<()> {
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 8000));
 
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    let listener = tokio::net::TcpListener::bind(addr).await?;
     tracing::debug!(
         "Listening on address: {}",
         listener

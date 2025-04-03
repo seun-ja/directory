@@ -2,14 +2,15 @@ use std::collections::BTreeMap;
 
 use crate::{
     db::{
-        SchoolDirectorySchema, TeacherSchema, school_directory_d::SchoolDirectoryDb,
+        TeacherSchema,
+        school_directory_d::{SchoolDirectory, SchoolDirectoryDb},
         teachers_d::TeacherDb,
     },
     error::ApiError,
 };
 use sqlx::PgPool;
 
-pub trait Searchable: Sized + SearchableTerm {
+pub trait Searchable {
     fn search_by_term(data: Vec<Self>, term: &str) -> Result<BTreeMap<String, Self>, ApiError>
     where
         Self: Sized + SearchableTerm,
@@ -26,7 +27,7 @@ pub trait SearchableTerm {
     fn search_term(&self) -> String;
 }
 
-async fn _school_directory_cache(pool: PgPool) -> Result<Vec<SchoolDirectorySchema>, ApiError> {
+async fn _school_directory_cache(pool: PgPool) -> Result<SchoolDirectory, ApiError> {
     SchoolDirectoryDb { pool }.school_data().await
 }
 
